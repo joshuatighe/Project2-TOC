@@ -73,7 +73,7 @@ while depth < max_depth:
             continue
 
         # get char at head
-        head_char = config[2][0] if len(config[2]) > 0 else ""
+        head_char = config[2][0] if len(config[2]) > 0 else ''
 
         # get valid transitions for current config
         valid_transitions = []
@@ -98,7 +98,7 @@ while depth < max_depth:
                 new_left = config[0] + write_char
                 new_right = config[2][1:] if len(config[2]) > 1 else '_'
             else:
-                new_left = config[0][:-1] if len(config[0]) > 1 else '_'
+                new_left = config[0][:-1] if len(config[0]) > 1 else ''
                 new_right = config[0][-1] + write_char + config[2][1:]
 
             next_depth_configs.append([new_left, new_state, new_right])
@@ -130,7 +130,7 @@ if accepted:  # accepted string found, depth = no. of transitions it took to get
 elif not all_rejected:  # execution stopped early due to max_depth being reached
     print(f'Execution stopped after reaching max tree depth: {max_depth}')
 else:  # all configs rejected at depth
-    print(f"All configs rejected at a depth of {depth}")
+    print(f'All configs rejected at a depth of {depth}')
 
 # print tree
 for level in tree:
